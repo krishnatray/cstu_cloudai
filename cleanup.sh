@@ -1,0 +1,1 @@
+kubectl delete pods --all
