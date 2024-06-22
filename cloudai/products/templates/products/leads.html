@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leads</title>
+</head>
+<body>
+    <h1>Leads</h1>
+    <form method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+    {% if enquiries %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Product Name</th>
+                    <th>Contact Email</th>
+                    <th>Contact Phone Number</th>
+                    <th>Enquiry</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enquiry in enquiries %}
+                    <tr>
+                        <td>{{ enquiry.name }}</td>
+                        <td>{{ enquiry.product_name }}</td>
+                        <td>{{ enquiry.contact_email }}</td>
+                        <td>{{ enquiry.contact_phone_number }}</td>
+                        <td>{{ enquiry.enquiry }}</td>
+                        <td>{{ enquiry.created_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
