@@ -17,7 +17,7 @@ spec:
       containers:
       - name: django-app
         image: cloudai:latest  # Replace with your Django app image
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
         env:
