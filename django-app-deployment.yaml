@@ -17,6 +17,7 @@ spec:
       containers:
       - name: django-app
         image: cloudai:latest  # Replace with your Django app image
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:
@@ -43,6 +44,6 @@ spec:
     app: django-app
   ports:
     - protocol: TCP
-      port: 80
+      port: 8000
       targetPort: 8000
-  type: LoadBalancer  # This exposes the service externally
+  type: ClusterIP  # This exposes the service externally

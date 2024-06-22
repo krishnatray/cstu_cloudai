@@ -1,18 +1,28 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Cloud.ai - Products and Services</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  {% block extra_css %}{% endblock %}
 </head>
 <body>
+     <!-- Bootstrap JS and dependencies -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     {% block extra_js %}{% endblock %}
+
     <h1>Cloud.ai - Products and Services</h1>
     <h4>CSTU Team 2: Sushil K Sharma, Vaishali Chauhan, Greg Franklin, Abu Imam Mehrab, Helly Patel, Nazanin Samimipour, Efrain Aldaz, Nicole Fan
     </h2>
     <div>
         {% for product in products %}
             <div class="product">
-                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}"
+                style="max-width: 150px; height: auto; border-radius: 5px; margin-right: 20px;" 
+                class="card-img-top"
+                >
                 <div class="product-description">
                     <h2>{{ product.name }}</h2>
                     <p>{{ product.description }}</p>
